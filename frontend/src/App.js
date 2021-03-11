@@ -27,11 +27,14 @@ const App = () => {
     // const name = e.target.name
     const value = e.target.value
     setSearchTerm(value)
-    console.log(searchTerm)
   }
 
   const  searchGithub = async (e) => {
     e.preventDefault()
+    if (searchTerm === ''){
+      setError('Search term cannot be empty. Please enter a value');
+      return
+    }
     // whenever we start a new request
     setLoading(true)
     setError(false)
@@ -99,6 +102,7 @@ const App = () => {
             )}
 
           {error && (<><p className="red-text">Error: {error}</p> </>)}
+          {hasMore && (<><p className="red-text">API call rate was exceeded by this request</p> </>)}
 
 
         </Form>

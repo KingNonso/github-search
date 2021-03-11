@@ -6,7 +6,12 @@ class Searches(models.Model):
     search = models.TextField('Search term', null=False, blank=False)
     date = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        verbose_name = 'Searches'
+        verbose_name_plural = 'Searches'
 
-# class Results(models.Model):
-#     search = models.ForeignKey(Searches)
-#     name = models.CharField()
+    def __str__(self):
+        return self.search
+
+
+

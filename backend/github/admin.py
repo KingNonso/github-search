@@ -1,3 +1,10 @@
 from django.contrib import admin
 
-# Register your models here.
+from . import models
+
+
+@admin.register(models.Searches)
+class SearchesAdmin(admin.ModelAdmin):
+    list_display = ('client_ip', 'search', 'date')
+    list_filter = ('client_ip', 'date', 'search')
+
