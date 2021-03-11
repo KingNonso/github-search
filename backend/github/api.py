@@ -1,18 +1,30 @@
-from datetime import datetime, timedelta
-from typing import Any
+import requests
 
-from django.utils.dateparse import parse_date
-from rest_framework import generics, status
-from rest_framework.request import Request
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from django.utils import timezone
-from django.db.models import Count, QuerySet
-
-from .models import Searches
+from rest_framework.status import HTTP_200_OK
 
 
-class SearchGithub(generics.ListAPIView):
-    model = Searches
-    queryset = Searches.objects.all()
+@api_view(['GET'])
+def search_github(request):
+    """
+    Make an API Call to Github
+    """
+    file = request.GET.get('file')
+    search = request.GET.get('search')
+    url = "https://api.github.com/search/code?q=%s+in:file+language:%s+repo:microsoft/vscode" % (search, file)
+    # print(file, search, url)
+    payload = {}
+    headers = {
+      'Accept': 'application/vnd.github.v3+json'
+    }
+
+    response = requests.request("GET", url, headers=headers, data=payload)
+
+    # print(response.text.encode('utf8'))
+    return Response(response.json(), status=HTTP_200_OK)
+    # return Response({'data':'one'})
+
+
+
 

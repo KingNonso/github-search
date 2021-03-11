@@ -5,6 +5,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 // Importing the Bootstrap CSS
 import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios'
+
+axios.defaults.baseURL = 'http://localhost:8000/'
+axios.defaults.headers.get['Accept'] = 'application/json'   // default header for all get request
+axios.defaults.headers.post['Accept'] = 'application/json'
 
 ReactDOM.render(
   <React.StrictMode>

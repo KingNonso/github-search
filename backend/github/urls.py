@@ -5,5 +5,5 @@ from . import api
 app_name = 'github'
 
 urlpatterns = [
-    path('', api.SearchGithub.as_view(), name='search_github'),
+    path('', api.search_github, name='search_github'),
 ]
