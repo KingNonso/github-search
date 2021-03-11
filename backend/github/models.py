@@ -1,3 +1,12 @@
 from django.db import models
 
-# Create your models here.
+
+class Searches(models.Model):
+    client_ip = models.IPAddressField('Client IP Address', null=True, blank=True)
+    search = models.TextField('Search term', null=False, blank=False)
+    date = models.DateTimeField(auto_now_add=True)
+
+
+# class Results(models.Model):
+#     search = models.ForeignKey(Searches)
+#     name = models.CharField()
