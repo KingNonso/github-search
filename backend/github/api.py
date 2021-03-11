@@ -9,7 +9,10 @@ from rest_framework.response import Response
 from django.utils import timezone
 from django.db.models import Count, QuerySet
 
+from .models import Searches
 
 
 class SearchGithub(generics.ListAPIView):
-    pass
+    model = Searches
+    queryset = Searches.objects.all()
+
