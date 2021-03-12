@@ -73,10 +73,10 @@ const App = () => {
             <p>Search for <b>html</b> items </p>
           </Tab>
         </Tabs>
-        <Form>
+        <Form data-testid="form" onSubmit={searchGithub}>
           <Form.Group controlId="formSearch">
             <Form.Label>Search Term</Form.Label>
-            <Form.Control type="text" value={searchTerm} onChange={handleChange} placeholder="Enter search term"/>
+            <Form.Control type="text" value={searchTerm} id="text1" onChange={handleChange} placeholder="Enter search term"/>
             <Form.Text className="text-muted">
               What do you want to search for on Github?
             </Form.Text>
