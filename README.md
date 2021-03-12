@@ -45,16 +45,16 @@ yarn start
 The server should now be running at [localhost:3000](http://localhost:3000), where you can access the form
 and enter a search term to see results.
 
-##What can be improved
+## What can be improved
 
 Frontend | Backend
 -------- | -------
 The styling: Frontend was done in bootstrap could use a lot of styling help  | Caching: using memcache for more robust and distributed caching instead of a filebased system
 Add Pagination | Add some pagination to the retrieved request and paginate it 
-Large App.js (not to large though) which can be further broken down as the project scope increase | use a better database instead of sqlite3 (e.g. postgres)
+Large App.js (not to large though) which can be further broken down as the project scope increase | Use a better database instead of sqlite3 (e.g. postgres)
 Use Atomic Design methodology | Use API Driven Design Methodology
 Add more test cases | Add more test cases
-:thinking: | tighten CORS Headers to only allow our requested URL (from the frontend)
+:thinking: | Tighten CORS Headers to only allow our requested URL (from the frontend)
 :thinking: | Use .env to store site secrets
 :thinking: | Add only required IP addresses and domain names to ALLOWED_HOSTS in settings
 :sunglasses: | More robust settings file for local, dev and prod use cases
