@@ -1,5 +1,14 @@
-# github-search
+# Github Search 
 A simple github search api with frontend in react and backend in django
+- [x] a single page React application and small server side application to process API requests from the client side
+- [x] The end user is able to click on one of 3 tabs: “JavaScript”, “CSS” or “HTML”
+- [x] On click, the user is able to see a search input and submit button to perform a
+code search
+- [x] When submitting, the application is able to asynchronous request to the server
+side to search code on GitHub
+- [x] The server application caches API request using a filebased system o prevent the client from hitting the endpoint’s rate limit.
+- [x] A history of searches should be stored in an SQLite3 table called “searches” containing an ID, the client IP, the search and the search date and time
+- [x] The search results are rendered in a table showing: the “name”, “path” and a link to “html_url”.
 
 ## How to get started with this project
 Please follow the following instructions to setup this project, if you have any troubles, raise an issue
@@ -10,7 +19,7 @@ To setup the backend, you would need to enter into the backend directory
 and create a virtual environment into which you install the requirements file.
 And then create the sqlite3 db and migrate the database, then start the server.
 
-~Note: I configured my environment to use python3 and pip3, using a bash alias, hence python3 is recommended~ 
+*Note: I configured my environment to use python3 and pip3, using a bash alias, hence python3 is recommended* 
 ```
 cd github-search/backend
 virtualenv env
@@ -35,3 +44,19 @@ yarn start
 ```
 The server should now be running at [localhost:3000](http://localhost:3000), where you can access the form
 and enter a search term to see results.
+
+##What can be improved
+
+Frontend | Backend
+-------- | -------
+The styling: Frontend was done in bootstrap could use a lot of styling help  | Caching: using memcache for more robust and distributed caching instead of a filebased system
+Add Pagination | Add some pagination to the retrieved request and paginate it 
+Large App.js (not to large though) which can be further broken down as the project scope increase | use a better database instead of sqlite3 (e.g. postgres)
+Use Atomic Design methodology | Use API Driven Design Methodology
+Add more test cases | Add more test cases
+:thinking: | tighten CORS Headers to only allow our requested URL (from the frontend)
+:thinking: | Use .env to store site secrets
+:thinking: | Add only required IP addresses and domain names to ALLOWED_HOSTS in settings
+:sunglasses: | More robust settings file for local, dev and prod use cases
+
+
