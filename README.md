@@ -12,6 +12,8 @@ And then create the sqlite3 db and migrate the database, then start the server
 ```
 cd github-search/backend
 virtualenv env
+source env/bin/activate  # activate virtualenv for Mac OS/ Linux
+env\Scripts\activate   # activate virtualenv for windows
 sqlite3 db.sqlite3  # create an sqlite3 database
 pip install -r requirements.txt
 python manage.py migrate
@@ -19,7 +21,7 @@ python manage.py createsuperuser  # to create an admin user
 python manage.py collectstatic
 python manage.py runserver  # runs server at 127.0.0.1:8000 
 ```
-You make then go to 127.0.0.1/admin to access the admin records 
+Django admin server should now be accessible via [127.0.0.1/admin](http://127.0.0.1/admin)  
 
 ### The Frontend
 To setup the frontend, you would need to enter into the frontend directory 
@@ -30,5 +32,5 @@ cd github-search/frontend
 yarn install
 yarn start
 ```
-The server should now be running at localhost:3000, where you can access the form
+The server should now be running at [localhost:3000](http://localhost:3000), where you can access the form
 and enter a search term to see results.
